@@ -63,7 +63,7 @@ def get_file_content(file_path: str) -> str:
 def post_review_to_github(pr_number: int, comment: str) -> str:
     """Post a review comment to a GitHub pull request given the PR number and the review comment body."""
     pr = repo.get_pull(pr_number)
-    pr.create_review(body=comment)
+    pr.create_review(body=comment, event="COMMENT")
     return f"Review posted to PR #{pr_number}."
 
 
